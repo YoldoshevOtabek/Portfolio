@@ -9,8 +9,7 @@ export default function Footer() {
       </Link>
 
       <p>
-        © {new Date().getFullYear()} Otabek Yo‘ldoshev. Barcha huquqlar
-        himoyalangan.
+        © 2026  Barcha huquqlar himoyalangan.
       </p>
 
       <span>
