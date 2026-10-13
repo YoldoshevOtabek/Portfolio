@@ -38,7 +38,7 @@ export default function About() {
           <h2 className="section-title">
             G‘oyalarni
             <br />
-            <span>ishlaydigan mahsulotga</span>
+            <span>real loyihalarga</span>
             <br />
             aylantiraman.
           </h2>

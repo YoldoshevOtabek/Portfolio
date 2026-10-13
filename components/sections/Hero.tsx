@@ -117,17 +117,17 @@ export default function Hero() {
 
         <div className="float-chip chip-react">
           <span>⚛</span>
-          <div><b>React.js</b><small>Component UI</small></div>
+          <div className="text-white!"><b>React.js</b><small>Component UI</small></div>
         </div>
 
         <div className="float-chip chip-ts">
           <span>TS</span>
-          <div><b>TypeScript</b><small>Type-safe code</small></div>
+          <div className="text-white!"><b>TypeScript</b><small>Type-safe code</small></div>
         </div>
 
         <div className="float-chip chip-next">
           <span>N</span>
-          <div><b>Next.js</b><small>Modern web apps</small></div>
+          <div className="text-white!"><b>Next.js</b><small>Modern web apps</small></div>
         </div>
 
         <div className="art-caption">
