@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     description:
       "Frontend portfolio — loyihalar, texnologiyalar va aloqa ma’lumotlari.",
     type: "website",
+    images:[
+      {
+        url: "/portfolioBase.png",
+        width:630,
+        height:1200,
+        alt:"Portfolio Img"
+      }
+    ]
   },
 };
 

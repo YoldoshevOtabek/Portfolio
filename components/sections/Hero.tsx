@@ -139,7 +139,7 @@ export default function Hero() {
       <a className="scroll-cue" href="#about">
         <span className="scroll-line" />
         <ArrowDown size={13} />
-        PASTGA O‘TISH
+        KO'PROQ KO'RISH
       </a>
     </section>
   );
