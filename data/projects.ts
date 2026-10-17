@@ -30,7 +30,7 @@ export const projects: Project[] = [
       "REST API",
     ],
     href: "https://github.com/YoldoshevOtabek/bizdaCrm",
-    liveUrl: "https://bizda-crm-w3o7.vercel.app",
+    liveUrl: "https://bizda-crm-w3o7.vercel.app/",
     kind: "shop",
     features: [
       "Dashboard va asosiy ko‘rsatkichlar",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       "O‘quv markazlari ish jarayonlarini boshqarish uchun admin, reception, o‘qituvchi va o‘quvchilar bo‘limlariga ega CRM loyihasi.",
     stack: ["React.js", "TypeScript", "Ant Design", "REST API", "Tailwind CSS", "React Query"],
     href: "https://github.com/YoldoshevOtabek/Education-CRM",
-    liveUrl: "https://education-crm-inky.vercel.app",
+    liveUrl: "https://education-crm-inky.vercel.app/",
     kind: "education",
     features: [
       "Admin va reception bo‘limlari",
@@ -68,6 +68,7 @@ export const projects: Project[] = [
       "Bizda CRM bilan ishlaydigan foydalanuvchi tomoni — mahsulotlarni ko‘rish, katalog va xarid jarayoni uchun Next.js asosidagi vitrina.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST API"],
     href: "https://github.com/YoldoshevOtabek/Bizda-users-Next.js",
+    liveUrl: "https://bizda-users-next-js-rhre-chi.vercel.app/",
     kind: "users",
     features: [
       "Mahsulotlar katalogi",
