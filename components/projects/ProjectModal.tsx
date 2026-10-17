@@ -60,7 +60,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           <span className="text-purple">.</span>
         </h2>
         <p className="mb-[18px] text-xs text-muted">{project.type}</p>
-        <p className="mb-[18px] text-xs text-muted"> LOGIN: "admin@example.com" * PASSWORD: "Admin123!"</p>
+        <p className="mb-[18px] text-xs text-muted">{project?.login} </p>
 
         <div className="mb-5 [&_[aria-label]]:mt-0 [&_[aria-label]]:h-[240px] max-[680px]:[&_[aria-label]]:h-[205px]">
           <ProjectPreview kind={project.kind} />
