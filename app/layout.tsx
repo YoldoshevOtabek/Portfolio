@@ -47,15 +47,15 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title,
+    title:"Portfolio",
     description,
     type: "website",
     locale: "uz_UZ",
     siteName: "Otabek Yo‘ldoshev",
     images: [
       {
-        url: "/.png",
-        width: 1200,
+        url: "/og.png",
+        width: 630,
         height: 630,
         alt: "Otabek Yo‘ldoshev — Frontend Developer",
       },
