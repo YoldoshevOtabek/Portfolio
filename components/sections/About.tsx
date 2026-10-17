@@ -21,6 +21,7 @@ import {
   card,
 } from "@/components/ui/primitives";
 import Reveal from "@/components/ui/Reveal";
+import Image from "next/image";
 
 const facts = [
   {
@@ -127,13 +128,13 @@ export default function About() {
         </div>
 
         <div>
-          <div className="rounded-[16px] border border-line bg-[linear-gradient(160deg,#121627,#0c0f18)] p-[22px] light:border-[#e0e3ee] light:bg-[linear-gradient(160deg,#fff,#f6f7fc)]">
+          <div className="group rounded-[16px] border border-line bg-[linear-gradient(160deg,#121627,#0c0f18)] p-[22px] light:border-[#e0e3ee] light:bg-[linear-gradient(160deg,#fff,#f6f7fc)]">
             <div className="mb-4 flex items-center gap-3.5">
-              <div className="grid size-14 place-items-center rounded-2xl bg-[#26203f] text-lg font-extrabold text-[#c5b8ff]">
-                OY
+              <div className="grid size-14 place-items-center overflow-hidden rounded-2xl bg-[#26203f] text-lg font-extrabold text-[#c5b8ff]">
+                <Image src="/og.png" alt="my img" width={40} height={40} className="rounded-xl transition-transform duration-500 ease-out motion-safe:group-hover:scale-110"/>
               </div>
 
-              <div>
+              <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
                 <span className="font-mono text-[9px] tracking-[1.2px] text-[#8b91a7]">
                   FRONTEND DEVELOPER
                 </span>
@@ -214,22 +215,24 @@ export default function About() {
               </span>
             </div>
 
-            <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
-              TA’LIM
-            </span>
+            <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
+              <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
+                TA’LIM
+              </span>
 
-            <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
-              PDP Academy
-            </h3>
-            <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
-              Frontend Development
-            </h4>
+              <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
+                PDP Academy
+              </h3>
+              <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
+                Frontend Development
+              </h4>
 
-            <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
-              Frontend dasturlash bo‘yicha web interfeyslar yaratish,
-              JavaScript va React ekotizimi, zamonaviy frontend
-              texnologiyalarini o‘rganish.
-            </p>
+              <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
+                Frontend dasturlash bo‘yicha web interfeyslar yaratish,
+                JavaScript va React ekotizimi, zamonaviy frontend
+                texnologiyalarini o‘rganish.
+              </p>
+            </div>
 
             <div className="mt-5 flex flex-wrap gap-[7px]">
               {learned.map((item) => (
@@ -253,22 +256,24 @@ export default function About() {
               </span>
             </div>
 
-            <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
-              AMALIY RIVOJLANISH
-            </span>
+            <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
+              <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
+                AMALIY RIVOJLANISH
+              </span>
 
-            <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
-              Real loyihalar ustida ishlash
-            </h3>
-            <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
-              Frontend Development
-            </h4>
+              <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
+                Real loyihalar ustida ishlash
+              </h3>
+              <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
+                Frontend Development
+              </h4>
 
-            <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
-              Online shop admin paneli, Education CRM va Bizda Users
-              loyihalari orqali interfeyslar yaratish, API bilan ishlash va
-              ma’lumotlarni boshqarish ko‘nikmalarini rivojlantiryapman.
-            </p>
+              <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
+                Online shop admin paneli, Education CRM va Bizda Users
+                loyihalari orqali interfeyslar yaratish, API bilan ishlash va
+                ma’lumotlarni boshqarish ko‘nikmalarini rivojlantiryapman.
+              </p>
+            </div>
 
             <ul className="my-[18px] grid list-none gap-3 p-0">
               {experience.map((item) => (

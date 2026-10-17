@@ -77,12 +77,14 @@ export default function Skills() {
               </span>
             </div>
 
-            <h3 className="mt-[17px] mb-[5px] text-[15px] max-[680px]:text-[13px]">
-              {title}
-            </h3>
-            <p className="mb-[18px] text-[10px] text-[#767d93] max-[680px]:min-h-[22px] max-[680px]:text-[9px] max-[370px]:min-h-0">
-              {description}
-            </p>
+            <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
+              <h3 className="mt-[17px] mb-[5px] text-[15px] max-[680px]:text-[13px]">
+                {title}
+              </h3>
+              <p className="mb-[18px] text-[10px] text-[#767d93] max-[680px]:min-h-[22px] max-[680px]:text-[9px] max-[370px]:min-h-0">
+                {description}
+              </p>
+            </div>
 
             <div className="grid gap-[5px]">
               {skills.map((skill) => (

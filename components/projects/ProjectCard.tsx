@@ -11,7 +11,7 @@ type Props = {
 
 export default function ProjectCard({ project, onOpen }: Props) {
   return (
-    <article className="h-full overflow-hidden rounded-[15px] border border-line bg-[linear-gradient(145deg,#10131e,#0c0f18)] transition duration-200 hover:-translate-y-[5px] hover:border-[#4b416e] light:border-[#e0e3ee] light:bg-[linear-gradient(145deg,#fff,#f7f8fc)]">
+    <article className="group h-full overflow-hidden rounded-[15px] border border-line bg-[linear-gradient(145deg,#10131e,#0c0f18)] transition duration-200 hover:-translate-y-[5px] hover:border-[#4b416e] light:border-[#e0e3ee] light:bg-[linear-gradient(145deg,#fff,#f7f8fc)]">
       <div className="relative h-[270px] overflow-hidden border-b border-line bg-[#0b0e17] px-[18px] pt-[18px] max-[950px]:h-[245px] max-[680px]:h-[250px] max-[680px]:px-3.5 max-[680px]:pt-[15px] max-[370px]:h-[220px] light:border-[#e0e3ee] light:bg-[#f0f1f8]">
         <div className="relative z-[3] flex items-center justify-between font-mono text-[8px] tracking-[1px] text-[#777e95]">
           <span>PROJECT / {project.number}</span>
@@ -33,23 +33,25 @@ export default function ProjectCard({ project, onOpen }: Props) {
       </div>
 
       <div className="p-[22px] max-[680px]:p-[18px]">
-        <div className="flex items-start justify-between">
-          <div>
-            <span className="font-mono text-[9px] text-[#8b91a7] light:text-[#777d91]">
-              {project.type}
+        <div className="origin-top-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
+          <div className="flex items-start justify-between">
+            <div>
+              <span className="font-mono text-[9px] text-[#8b91a7] light:text-[#777d91]">
+                {project.type}
+              </span>
+              <h3 className="mt-[7px] mb-0 text-[22px] tracking-[-0.8px] max-[680px]:text-[21px]">
+                {project.name}
+              </h3>
+            </div>
+            <span className="font-mono text-xs text-[#565d74] light:text-[#777d91]">
+              {project.number}
             </span>
-            <h3 className="mt-[7px] mb-0 text-[22px] tracking-[-0.8px] max-[680px]:text-[21px]">
-              {project.name}
-            </h3>
           </div>
-          <span className="font-mono text-xs text-[#565d74] light:text-[#777d91]">
-            {project.number}
-          </span>
-        </div>
 
-        <p className="my-[15px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
-          {project.description}
-        </p>
+          <p className="my-[15px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
+            {project.description}
+          </p>
+        </div>
 
         <div className="flex flex-wrap gap-1.5">
           {project.stack.map((technology) => (

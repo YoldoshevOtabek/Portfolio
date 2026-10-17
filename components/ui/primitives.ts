@@ -34,7 +34,7 @@ export const btnGhost =
   `${btnBase} border border-[#34384e] bg-transparent text-[#e0e1ed] hover:border-purple light:border-[#d8dbea] light:text-[#29283c]`;
 
 export const card =
-  "rounded-[14px] border border-line bg-[linear-gradient(145deg,#111521,#0b0e17)] transition duration-200 hover:-translate-y-1 hover:border-[#484064] light:border-[#e0e3ee] light:bg-[linear-gradient(145deg,#fff,#f7f8fc)]";
+  "group rounded-[14px] border border-line bg-[linear-gradient(145deg,#111521,#0b0e17)] transition duration-200 hover:-translate-y-1 hover:border-[#484064] light:border-[#e0e3ee] light:bg-[linear-gradient(145deg,#fff,#f7f8fc)]";
 
 export const tag =
   "rounded-md border border-[#2b2f43] bg-white/[0.01] px-2 py-1.5 text-[9px] text-[#a9aec2] light:border-[#e0e2ef] light:bg-[#f5f6fb] light:text-[#5c6178]";
