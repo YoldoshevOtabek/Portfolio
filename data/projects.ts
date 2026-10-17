@@ -1,57 +1,76 @@
+export type ProjectKind = "shop" | "education" | "users";
+
 export type Project = {
-    number: string;
-    name: string;
-    type: string;
-    description: string;
-    stack: string[];
-    href: string;
-    kind: "shop" | "education";
-    features: string[];
-  };
-  
-  export const projects: Project[] = [
-    {
-      number: "01",
-      name: "BizdaCRM",
-      type: "Online shop admin panel",
-      description:
-        "An admin workspace for managing the day-to-day operations of an online store, from product catalogues to orders and customers.",
-      stack: [
-        "React.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Ant Design",
-        "React Query",
-        "REST API",
-      ],
-      href: "https://github.com/YoldoshevOtabek/bizdaCrm",
-      kind: "shop",
-      features: [
-        "Dashboard & store overview",
-        "Orders and customers",
-        "Products, categories & brands",
-        "Banner and profile management",
-      ],
-    },
-    {
-      number: "02",
-      name: "Education CRM",
-      type: "Education center management",
-      description:
-        "A role-oriented CRM for learning centers, with dedicated workspaces and management tools for the team.",
-      stack: [
-        "React.js",
-        "TypeScript",
-        "Ant Design",
-        "REST API",
-      ],
-      href: "https://github.com/YoldoshevOtabek/Education-CRM",
-      kind: "education",
-      features: [
-        "Admin & reception workflows",
-        "Teacher and student sections",
-        "Directions and groups",
-        "Role-based dashboards",
-      ],
-    },
-  ];
+  number: string;
+  name: string;
+  type: string;
+  description: string;
+  stack: string[];
+  href: string;
+  liveUrl?: string;
+  kind: ProjectKind;
+  features: string[];
+};
+
+export const projects: Project[] = [
+  {
+    number: "01",
+    name: "Bizda CRM",
+    type: "ONLINE SHOP · ADMIN PANEL ",
+    description:
+      "Mahsulotlar, buyurtmalar, mijozlar va katalogni boshqarish uchun ishlab chiqilgan online shop admin paneli. ",
+    stack: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Ant Design",
+      "React Query",
+      "REST API",
+    ],
+    href: "https://github.com/YoldoshevOtabek/bizdaCrm",
+    liveUrl: "https://bizda-crm-w3o7.vercel.app",
+    kind: "shop",
+    features: [
+      "Dashboard va asosiy ko‘rsatkichlar",
+      "Buyurtmalarni boshqarish",
+      "Mahsulotlar va kategoriyalar",
+      "Mijozlar va brendlar",
+      "Profil va banner boshqaruvi",
+    ],
+  },
+  {
+    number: "02",
+    name: "Education CRM",
+    type: "EDUCATION · CRM SYSTEM",
+    description:
+      "O‘quv markazlari ish jarayonlarini boshqarish uchun admin, reception, o‘qituvchi va o‘quvchilar bo‘limlariga ega CRM loyihasi.",
+    stack: ["React.js", "TypeScript", "Ant Design", "REST API", "Tailwind CSS", "React Query"],
+    href: "https://github.com/YoldoshevOtabek/Education-CRM",
+    liveUrl: "https://education-crm-inky.vercel.app/",
+    kind: "education",
+    features: [
+      "Admin va reception bo‘limlari",
+      "O‘qituvchilarni boshqarish",
+      "O‘quvchilar ro‘yxati",
+      "Guruhlar va yo‘nalishlar",
+      "Dashboard interfeyslari",
+    ],
+  },
+  {
+    number: "03",
+    name: "Bizda Users",
+    type: "E-COMMERCE · NEXT.JS STOREFRONT",
+    description:
+      "Bizda CRM bilan ishlaydigan foydalanuvchi tomoni — mahsulotlarni ko‘rish, katalog va xarid jarayoni uchun Next.js asosidagi vitrina.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "REST API"],
+    href: "https://github.com/YoldoshevOtabek/Bizda-users-Next.js",
+    kind: "users",
+    features: [
+      "Mahsulotlar katalogi",
+      "Kategoriya bo‘yicha filter",
+      "Mahsulot tafsilotlari",
+      "Responsive vitrina",
+      "CRM bilan API integratsiyasi",
+    ],
+  },
+];

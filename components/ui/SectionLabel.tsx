@@ -1,4 +1,5 @@
 import { ArrowDownRight } from "lucide-react";
+import { sectionLabel, sectionTitle } from "@/components/ui/primitives";
 
 interface SectionLabelProps {
   number: string;
@@ -14,21 +15,20 @@ export default function SectionLabel({
   description,
 }: SectionLabelProps) {
   return (
-    <div className="section-label">
-      <div className="section-label-top">
-        <span className="section-label-number">{number}</span>
-
-        <span className="section-label-name">{label}</span>
-
+    <div>
+      <div className={`${sectionLabel} mb-4`}>
+        <span className="text-[11px] text-purple">{number}</span>
+        <span>{label}</span>
         <ArrowDownRight size={18} />
       </div>
 
-      <h2 className="section-label-title">{title}</h2>
+      <h2 className={sectionTitle}>{title}</h2>
 
       {description && (
-        <p className="section-label-description">{description}</p>
+        <p className="mt-3 max-w-[560px] text-xs leading-[1.7] text-muted">
+          {description}
+        </p>
       )}
     </div>
   );
 }
-

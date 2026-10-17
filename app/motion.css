@@ -1,0 +1,146 @@
+@keyframes motion-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes motion-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes motion-orbit-a {
+  from {
+    transform: rotate(-24deg);
+  }
+
+  to {
+    transform: rotate(336deg);
+  }
+}
+
+@keyframes motion-orbit-b {
+  from {
+    transform: rotate(38deg);
+  }
+
+  to {
+    transform: rotate(398deg);
+  }
+}
+
+@keyframes motion-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes motion-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes motion-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes motion-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.motion-rise {
+  animation: motion-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-float {
+  animation: motion-float 5.6s ease-in-out infinite;
+}
+
+.motion-orbit-a {
+  transform: rotate(-24deg);
+  animation: motion-orbit-a 36s linear infinite;
+}
+
+.motion-orbit-b {
+  transform: rotate(38deg);
+  animation: motion-orbit-b 48s linear infinite;
+}
+
+.motion-pulse {
+  animation: motion-pulse 2.2s ease-in-out infinite;
+}
+
+.motion-fade {
+  animation: motion-fade 0.28s ease both;
+}
+
+.motion-pop {
+  animation: motion-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-bob {
+  animation: motion-bob 1.6s ease-in-out infinite;
+}
+
+.motion-hold {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-rise,
+  .motion-float,
+  .motion-orbit-a,
+  .motion-orbit-b,
+  .motion-pulse,
+  .motion-fade,
+  .motion-pop,
+  .motion-bob,
+  .animate-marquee {
+    animation: none;
+  }
+
+  .motion-hold {
+    opacity: 1;
+    transform: none;
+  }
+}
