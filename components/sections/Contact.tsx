@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowUpRight, Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import {
@@ -7,8 +9,11 @@ import {
   btnPrimary,
 } from "@/components/ui/primitives";
 import Reveal from "@/components/ui/Reveal";
+import { useI18n } from "@/lib/i18n";
 
 export default function Contact() {
+  const { t } = useI18n();
+
   return (
     <section
       className="relative overflow-hidden border-y border-[#202333] bg-[#0b0d16] light:border-[#e0e3ee] light:bg-[#eef0f8]"
@@ -18,7 +23,7 @@ export default function Contact() {
 
       <div className={`${wrap} relative pt-[74px] pb-[84px] max-[680px]:pt-[62px] max-[680px]:pb-[60px]`}>
         <div className={sectionLabel}>
-          <span className="text-[11px] text-purple">04</span> / ALOQA
+          <span className="text-[11px] text-purple">04</span> / {t.contact.label}
         </div>
 
         <div className="grid grid-cols-[1fr_0.85fr] gap-[100px] pt-8 max-[950px]:gap-[45px] max-[680px]:grid-cols-1 max-[680px]:gap-8 max-[680px]:pt-6">
@@ -26,20 +31,17 @@ export default function Contact() {
           <div>
             <div className="flex items-center gap-[9px] font-mono text-[9px] tracking-[1.1px] text-[#b9b4d8]">
               <span className="motion-pulse inline-block size-[7px] rounded-full bg-green shadow-[0_0_13px_#81e6b080]" />
-              YANGI IMKONIYATLARGA OCHIQMAN
+              {t.contact.badge}
             </div>
 
             <h2 className="my-[25px] text-[clamp(46px,6vw,68px)] leading-[1.05] tracking-[-3px] max-[680px]:mt-5 max-[680px]:text-[53px] max-[680px]:tracking-[-2.4px] max-[370px]:text-[46px]">
-              Birga
+              {t.contact.titleA}
               <br />
-              <span className={gradientText}>yarataylik</span>
+              <span className={gradientText}>{t.contact.titleB}</span>
             </h2>
 
             <p className="max-w-[410px] text-xs leading-[1.9] text-muted light:text-[#666b7f]">
-              Jamoangizga frontend dasturchi kerakmi yoki loyihangiz
-              haqida suhbatlashmoqchimisiz? Men bilan bog‘laning.
-              Yangi imkoniyatlar va hamkorlik takliflarini mamnuniyat
-              bilan ko‘rib chiqaman.
+              {t.contact.text}
             </p>
 
             <a
@@ -47,7 +49,7 @@ export default function Contact() {
               className={`${btnPrimary} mt-[15px]`}
             >
               <Mail size={16} />
-              Email yuborish
+              {t.contact.emailCta}
               <ArrowUpRight size={15} />
             </a>
           </div>
@@ -64,7 +66,7 @@ export default function Contact() {
               </span>
               <span className="min-w-0 flex-1">
                 <small className="mb-1.5 block font-mono text-[9px] tracking-[1px] text-[#767e96] light:text-[#777d91]">
-                  EMAIL
+                  {t.contact.email}
                 </small>
                 <b className="text-[11px] wrap-anywhere max-[680px]:text-[10px] light:text-[#29283c]">
                   yoldoshevo2000@gmail.com
@@ -82,7 +84,7 @@ export default function Contact() {
               </span>
               <span className="min-w-0 flex-1">
                 <small className="mb-1.5 block font-mono text-[9px] tracking-[1px] text-[#767e96] light:text-[#777d91]">
-                  TELEFON
+                  {t.contact.phone}
                 </small>
                 <b className="text-[11px] max-[680px]:text-[10px] light:text-[#29283c]">
                   +998 90 322 49 66
@@ -102,7 +104,7 @@ export default function Contact() {
               </span>
               <span className="min-w-0 flex-1">
                 <small className="mb-1.5 block font-mono text-[9px] tracking-[1px] text-[#767e96] light:text-[#777d91]">
-                  TELEGRAM
+                  {t.contact.telegram}
                 </small>
                 <b className="text-[11px] max-[680px]:text-[10px] light:text-[#29283c]">
                   @Otabek_Y_2000
@@ -117,10 +119,10 @@ export default function Contact() {
               </span>
               <span className="min-w-0 flex-1">
                 <small className="mb-1.5 block font-mono text-[9px] tracking-[1px] text-[#767e96] light:text-[#777d91]">
-                  JOYLASHUV
+                  {t.contact.location}
                 </small>
                 <b className="text-[11px] max-[680px]:text-[10px] light:text-[#29283c]">
-                  Amudaryo, Qoraqalpog‘iston
+                  {t.contact.locationValue}
                 </b>
               </span>
             </div>

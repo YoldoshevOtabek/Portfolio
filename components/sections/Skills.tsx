@@ -1,3 +1,5 @@
+"use client";
+
 import { Code2, Palette, Database, Wrench, Check } from "lucide-react";
 import {
   wrap,
@@ -11,54 +13,45 @@ import {
   card,
 } from "@/components/ui/primitives";
 import Reveal from "@/components/ui/Reveal";
+import { useI18n } from "@/lib/i18n";
 
-const skillGroups = [
-  {
-    title: "Frontend",
-    description: "Interaktiv web interfeyslar",
-    icon: Code2,
-    skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React.js", "Next.js"],
-  },
-  {
-    title: "UI & Styling",
-    description: "Responsive va zamonaviy dizayn",
-    icon: Palette,
-    skills: ["Tailwind CSS", "CSS Modules", "Responsive UI", "Ant Design"],
-  },
-  {
-    title: "Data & State",
-    description: "API va ma’lumotlar bilan ishlash",
-    icon: Database,
-    skills: ["REST API", "Axios", "React Query", "React Hooks"],
-  },
-  {
-    title: "Tools",
-    description: "Kundalik dasturlash vositalari",
-    icon: Wrench,
-    skills: ["Git", "GitHub", "Vite", "npm", "VS Code"],
-  },
+const skillIcons = [Code2, Palette, Database, Wrench];
+
+const skillLists = [
+  ["HTML5", "CSS3", "JavaScript", "TypeScript", "React.js", "Next.js"],
+  ["Tailwind CSS", "CSS Modules", "Responsive UI", "Ant Design"],
+  ["REST API", "Axios", "React Query", "React Hooks"],
+  ["Git", "GitHub", "Vite", "npm", "VS Code"],
 ];
 
 export default function Skills() {
+  const { t } = useI18n();
+
+  const skillGroups = t.skills.groups.map((group, index) => ({
+    ...group,
+    icon: skillIcons[index],
+    skills: skillLists[index],
+  }));
+
   return (
     <section className={`${section} ${wrap}`} id="skills">
       <div className={sectionLabel}>
-        <span className="text-[11px] text-purple">02</span> / KO‘NIKMALAR
+        <span className="text-[11px] text-purple">02</span> / {t.skills.label}
       </div>
 
       <div className={headingRow}>
         <div>
           <h2 className={sectionTitle}>
-            Ishlatadigan <span className={gradientText}>texnologiyalar</span>
+            {t.skills.titleA} <span className={gradientText}>{t.skills.titleB}</span>
           </h2>
           <p className={subtitle}>
-            Loyihalarimda foydalanadigan asosiy vositalar va texnologiyalar
+            {t.skills.subtitle}
           </p>
         </div>
 
         <div className={headingAside}>
           <Code2 size={15} className="text-purple" />
-          MY TOOLKIT
+          {t.skills.aside}
         </div>
       </div>
 

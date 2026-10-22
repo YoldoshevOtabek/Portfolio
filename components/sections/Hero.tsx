@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Send } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -7,8 +9,11 @@ import {
   btnPrimary,
   btnSecondary,
 } from "@/components/ui/primitives";
+import { useI18n } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t } = useI18n();
+
   return (
     <section
       className={`${wrap} relative grid min-h-[620px] grid-cols-[1.03fr_0.97fr] items-center pt-[30px] pb-[72px] max-[950px]:min-h-[590px] max-[950px]:grid-cols-[1fr_0.88fr] max-[680px]:flex max-[680px]:min-h-0 max-[680px]:flex-col max-[680px]:items-stretch max-[680px]:pt-11 max-[680px]:pb-16`}
@@ -17,14 +22,14 @@ export default function Hero() {
       <div className="relative z-[2] py-[35px] max-[680px]:p-0">
         <div className="motion-rise flex items-center gap-[9px] font-mono text-[10px] tracking-[1.1px] text-[#b9b4d8]">
           <span className="motion-pulse inline-block size-[7px] rounded-full bg-green shadow-[0_0_13px_#81e6b080]" />
-          JUNIOR FRONTEND DEVELOPER
+          {t.hero.badge}
         </div>
 
         <p
           className="motion-rise mt-[35px] mb-0 text-[19px] text-[#c6c5d7] max-[680px]:mt-[30px] max-[680px]:text-[17px] light:text-[#5f6378]"
           style={{ animationDelay: "70ms" }}
         >
-          Salom, men
+          {t.hero.greeting}
         </p>
 
         <h1
@@ -40,7 +45,7 @@ export default function Hero() {
           className="motion-rise mb-[18px] text-[17px] font-bold tracking-[-0.4px] max-[680px]:text-[15px]"
           style={{ animationDelay: "180ms" }}
         >
-          Frontend Developer
+          {t.hero.role}
           <span className="ml-[7px] text-purple">/</span>
         </h2>
 
@@ -48,10 +53,7 @@ export default function Hero() {
           className="motion-rise max-w-[430px] text-[13px] leading-[1.9] text-muted max-[680px]:max-w-[400px] max-[680px]:text-xs light:text-[#666b7f]"
           style={{ animationDelay: "230ms" }}
         >
-          React, TypeScript va Next.js yordamida zamonaviy, responsive
-          va foydalanuvchilar uchun qulay web ilovalar yarataman.
-          Hozirda yangi tajriba orttirish va professional jamoada
-          rivojlanishga intilyapman.
+          {t.hero.bio}
         </p>
 
         <div
@@ -59,12 +61,12 @@ export default function Hero() {
           style={{ animationDelay: "290ms" }}
         >
           <Link href="#projects" className={btnPrimary}>
-            Loyihalarimni ko‘rish
+            {t.hero.viewProjects}
             <ArrowUpRight size={16} />
           </Link>
 
           <Link href="#contact" className={btnSecondary}>
-            Men bilan bog‘lanish
+            {t.hero.contact}
             <Send size={15} />
           </Link>
         </div>
@@ -108,7 +110,7 @@ export default function Hero() {
       <div className="motion-rise" style={{ animationDelay: "160ms" }}>
       <div
         className="relative isolate grid h-[480px] place-items-center max-[950px]:origin-center max-[950px]:scale-[0.88] max-[680px]:my-[15px] max-[680px]:-mb-[5px] max-[680px]:h-[340px] max-[680px]:w-full max-[680px]:scale-90 max-[370px]:mx-[-5px] max-[370px]:w-[calc(100%+10px)] max-[370px]:scale-[0.82]"
-        aria-label="Frontend texnologiyalari tasviri"
+        aria-label={t.hero.visualAria}
       >
         <div className="absolute inset-y-10 -z-[1] w-full bg-[linear-gradient(#9e8aff0a_1px,transparent_1px),linear-gradient(90deg,#9e8aff0a_1px,transparent_1px)] bg-size-[30px_30px] mask-[radial-gradient(ellipse,black,transparent_72%)]" />
         <div className="motion-orbit-a absolute size-[390px] h-[270px] rounded-full border border-[#7b69c52a] max-[680px]:h-[220px] max-[680px]:w-[290px]" />
@@ -183,7 +185,7 @@ export default function Hero() {
           <div className="flex justify-between border-t border-[#252a3b] px-3 py-[9px] font-mono text-[8px] text-[#7e859d]">
             <span className="inline-flex items-center">
               <span className="mr-[5px] inline-block size-[5px] rounded-full bg-green" />{" "}
-              Ready to build
+              {t.hero.ready}
             </span>
             <span>TSX</span>
           </div>
@@ -200,7 +202,7 @@ export default function Hero() {
           <div className="text-white">
             <b className="block text-[10px] max-[680px]:text-[9px]">React.js</b>
             <small className="mt-[3px] block text-[8px] text-[#858ca4] max-[680px]:text-[7px]">
-              Component UI
+              {t.hero.reactHint}
             </small>
           </div>
         </div>
@@ -215,7 +217,7 @@ export default function Hero() {
           <div className="text-white">
             <b className="block text-[10px] max-[680px]:text-[9px]">TypeScript</b>
             <small className="mt-[3px] block text-[8px] text-[#858ca4] max-[680px]:text-[7px]">
-              Type-safe code
+              {t.hero.tsHint}
             </small>
           </div>
         </div>
@@ -230,16 +232,16 @@ export default function Hero() {
           <div className="text-white">
             <b className="block text-[10px] max-[680px]:text-[9px]">Next.js</b>
             <small className="mt-[3px] block text-[8px] text-[#858ca4] max-[680px]:text-[7px]">
-              Modern web apps
+              {t.hero.nextHint}
             </small>
           </div>
         </div>
 
         <div className="absolute right-1 bottom-[22px] left-1 flex justify-between font-mono text-[9px] tracking-[1px] text-[#666e86] max-[680px]:bottom-0">
-          <span>CREATIVE DEVELOPMENT</span>
+          <span>{t.hero.creative}</span>
           <span className="flex items-center gap-[7px]">
             <span className="motion-pulse inline-block size-[7px] rounded-full bg-green shadow-[0_0_13px_#81e6b080]" />{" "}
-            OPEN TO OPPORTUNITIES
+            {t.hero.open}
           </span>
         </div>
       </div>
@@ -251,7 +253,7 @@ export default function Hero() {
       >
         <span className="h-px w-8 bg-[#5d547f]" />
         <ArrowDown size={13} className="motion-bob" />
-        KO&apos;PROQ KO&apos;RISH
+        {t.hero.more}
       </a>
     </section>
   );

@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUp, Heart } from "lucide-react";
 import { wrap, wordmark } from "@/components/ui/primitives";
 import Reveal from "@/components/ui/Reveal";
+import { useI18n } from "@/lib/i18n";
 
 export default function Footer() {
+  const { t } = useI18n();
+
   return (
     <Reveal>
     <footer
@@ -15,7 +20,7 @@ export default function Footer() {
       </Link>
 
       <p className="m-0 text-[9px] text-[#747b91] max-[680px]:col-start-1 max-[680px]:row-start-2">
-        © 2026 Barcha huquqlar himoyalangan
+        {t.footer.rights}
       </p>
 
       
@@ -24,7 +29,7 @@ export default function Footer() {
         href="#home"
         className="flex items-center gap-[7px] font-mono text-[8px] tracking-[1px] text-[#9a9fb2] max-[680px]:col-start-2 max-[680px]:row-span-2 max-[680px]:row-start-1"
       >
-        YUQORIGA
+        {t.footer.top}
         <ArrowUp size={14} />
       </a>
     </footer>

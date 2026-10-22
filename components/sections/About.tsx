@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -22,24 +24,9 @@ import {
 } from "@/components/ui/primitives";
 import Reveal from "@/components/ui/Reveal";
 import Image from "next/image";
+import { useI18n } from "@/lib/i18n";
 
-const facts = [
-  {
-    icon: MapPin,
-    label: "JOYLASHUV",
-    value: "Toshkent, O‘zbekiston",
-  },
-  {
-    icon: GraduationCap,
-    label: "TA’LIM",
-    value: "PDP Academy · 2026",
-  },
-  {
-    icon: Code2,
-    label: "ASOSIY YO‘NALISH",
-    value: "Frontend Development",
-  },
-];
+const factIcons = [MapPin, GraduationCap, Code2];
 
 const learned = [
   "HTML & CSS",
@@ -50,39 +37,19 @@ const learned = [
   "Tailwind CSS",
 ];
 
-const experience = [
-  "Komponentli arxitektura",
-  "REST API integratsiyasi",
-  "Responsive interfeyslar",
-  "Git va GitHub",
-];
-
-const languages = [
-  {
-    code: "UZ",
-    name: "O‘zbek tili",
-    level: "Asosiy",
-    style: "bg-[#15394b] text-[#83d7ff]",
-  },
-  {
-    code: "EN",
-    name: "Ingliz tili",
-    level: "B1",
-    style: "bg-[#35213e] text-[#d7a9ff]",
-  },
-  {
-    code: "RU",
-    name: "Rus tili",
-    level: "O‘rtacha",
-    style: "bg-[#24304e] text-[#a8c3ff]",
-  },
+const languageStyles = [
+  { code: "UZ", style: "bg-[#15394b] text-[#83d7ff]" },
+  { code: "EN", style: "bg-[#35213e] text-[#d7a9ff]" },
+  { code: "RU", style: "bg-[#24304e] text-[#a8c3ff]" },
 ];
 
 export default function About() {
+  const { t } = useI18n();
+
   return (
     <section className={`${section} ${wrap}`} id="about">
       <div className={sectionLabel}>
-        <span className="text-[11px] text-purple">01</span> / MEN HAQIMDA
+        <span className="text-[11px] text-purple">01</span> / {t.about.label}
       </div>
 
       <Reveal>
@@ -90,39 +57,33 @@ export default function About() {
         <div>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#343047] bg-[#18152a] px-3 py-1.5 font-mono text-[9px] tracking-[1.2px] text-[#b9b4d8] light:border-[#e0e3ee] light:bg-white light:text-[#5c6276]">
             <Sparkles size={14} className="text-purple" />
-            O‘RGANISH VA RIVOJLANISHDA DAVOM ETAMAN
+            {t.about.badge}
           </div>
 
           <h2 className={sectionTitle}>
-            G‘oyalarni
+            {t.about.titleA}
             <br />
-            <span className={gradientText}>real loyihalarga</span>
+            <span className={gradientText}>{t.about.titleB}</span>
             <br />
-            aylantiraman
+            {t.about.titleC}
           </h2>
 
           <p className="my-[22px] max-w-[560px] text-[13px] leading-[1.95] text-muted max-[680px]:my-4 max-[680px]:text-xs light:text-[#666b7f]">
-            Men Otabek Yo‘ldoshev, Junior Frontend Developerman.
-            React.js, TypeScript, Next.js va Tailwind CSS yordamida
-            zamonaviy, qulay va responsive web interfeyslar yarataman.
+            {t.about.p1}
           </p>
 
           <p className="my-[22px] max-w-[560px] text-[13px] leading-[1.95] text-muted max-[680px]:my-4 max-[680px]:text-xs light:text-[#666b7f]">
-            Amaliy loyihalarimda admin panellar, CRM tizimlari,
-            dashboardlar va REST API integratsiyasi bilan ishlayman.
-            Maqsadim — professional jamoada tajriba orttirish,
-            sifatli kod yozish va foydalanuvchilar uchun qulay
-            mahsulotlar yaratish.
+            {t.about.p2}
           </p>
 
           <div className="mt-2 flex flex-wrap gap-3">
             <Link href="#projects" className={btnPrimary}>
-              Loyihalarimni ko‘rish
+              {t.about.viewProjects}
               <ArrowUpRight size={16} />
             </Link>
 
             <Link href="#contact" className={btnSecondary}>
-              Bog‘lanish
+              {t.about.contact}
             </Link>
           </div>
         </div>
@@ -131,27 +92,31 @@ export default function About() {
           <div className="group rounded-[16px] border border-line bg-[linear-gradient(160deg,#121627,#0c0f18)] p-[22px] light:border-[#e0e3ee] light:bg-[linear-gradient(160deg,#fff,#f6f7fc)]">
             <div className="mb-4 flex items-center gap-3.5">
               <div className="grid size-14 place-items-center overflow-hidden rounded-2xl bg-[#26203f] text-lg font-extrabold text-[#c5b8ff]">
-                <Image src="/og.png" alt="my img" width={40} height={40} className="rounded-xl transition-transform duration-500 ease-out motion-safe:group-hover:scale-110"/>
+                <Image src="/og.png" alt={t.about.photoAlt} width={40} height={40} className="rounded-xl transition-transform duration-500 ease-out motion-safe:group-hover:scale-110"/>
               </div>
 
               <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
                 <span className="font-mono text-[9px] tracking-[1.2px] text-[#8b91a7]">
-                  FRONTEND DEVELOPER
+                  {t.about.role}
                 </span>
                 <h3 className="m-0 text-[18px] font-extrabold tracking-[-0.4px] light:text-[#29283c]">
-                  Otabek Yo‘ldoshev
+                  {t.about.name}
                 </h3>
-                <p className="m-0 text-[11px] text-muted">Junior Developer</p>
+                <p className="m-0 text-[11px] text-muted">{t.about.junior}</p>
               </div>
             </div>
 
             <div className="mb-3.5 flex items-center gap-2 rounded-[10px] border border-[#2a3344] bg-[#15221c] px-3 py-2.5 text-[11px] text-[#9ad4b4]">
               <span className="inline-block size-[7px] rounded-full bg-green shadow-[0_0_13px_#81e6b080]" />
-              Yangi imkoniyatlarga ochiqman
+              {t.about.open}
             </div>
 
             <div className="grid content-center gap-2.5 max-[680px]:gap-2">
-              {facts.map(({ icon: Icon, label, value }) => (
+              {t.about.facts.map(({ label, value }, index) => {
+                const Icon = factIcons[index];
+                if (!Icon) return null;
+
+                return (
                 <div
                   className="flex min-h-[75px] items-center gap-[13px] rounded-xl border border-line bg-[linear-gradient(130deg,#10131e,#0c0f18)] p-[15px] max-[680px]:min-h-[68px] light:border-[#e0e3ee] light:bg-[linear-gradient(145deg,#fff,#f7f8fc)]"
                   key={label}
@@ -169,12 +134,13 @@ export default function About() {
 
                   <ArrowUpRight size={15} className="text-[#636b81] light:text-[#777d91]" />
                 </div>
-              ))}
+              );
+              })}
             </div>
 
             <div className="mt-4 flex items-center gap-2.5 text-[11px] leading-[1.7] text-[#a8aec3] light:text-[#555a70]">
               <Code2 size={16} className="text-cyan" />
-              <span>Kod yozish, o‘rganish va yangi g‘oyalar</span>
+              <span>{t.about.note}</span>
             </div>
           </div>
         </div>
@@ -186,16 +152,15 @@ export default function About() {
         <div className="mb-6 flex items-end justify-between gap-5 max-[680px]:flex-col max-[680px]:items-start">
           <div>
             <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
-              TA’LIM VA AMALIY TAJRIBA
+              {t.about.eduKicker}
             </span>
 
             <h3 className="mt-2 mb-2 text-[28px] font-extrabold tracking-[-1px]">
-              Bilimdan <span className={gradientText}>tajribaga</span>
+              {t.about.eduTitleA} <span className={gradientText}>{t.about.eduTitleB}</span>
             </h3>
 
             <p className="m-0 max-w-[460px] text-xs leading-[1.7] text-muted">
-              Nazariy bilimlarni amaliy loyihalar orqali mustahkamlab
-              boryapman
+              {t.about.eduSubtitle}
             </p>
           </div>
 
@@ -217,20 +182,18 @@ export default function About() {
 
             <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
               <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
-                TA’LIM
+                {t.about.education}
               </span>
 
               <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
-                PDP Academy
+                {t.about.academy}
               </h3>
               <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
-                Frontend Development
+                {t.about.track}
               </h4>
 
               <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
-                Frontend dasturlash bo‘yicha web interfeyslar yaratish,
-                JavaScript va React ekotizimi, zamonaviy frontend
-                texnologiyalarini o‘rganish.
+              {t.about.eduText}
               </p>
             </div>
 
@@ -252,31 +215,29 @@ export default function About() {
                 <BriefcaseBusiness size={21} />
               </span>
               <span className="rounded-[7px] border border-[#343047] px-[9px] py-1.5 font-mono text-[8px] tracking-[0.5px] text-[#b4a5ec]">
-                DAVOM ETMOQDA
+                {t.about.practiceBadge}
               </span>
             </div>
 
             <div className="origin-left transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]">
               <span className="font-mono text-[9px] tracking-[1.3px] text-[#858ba2]">
-                AMALIY RIVOJLANISH
+                {t.about.practiceLabel}
               </span>
 
               <h3 className="mt-2 mb-1 text-[21px] tracking-[-0.5px] light:text-[#29283c]">
-                Real loyihalar ustida ishlash
+                {t.about.practiceTitle}
               </h3>
               <h4 className="m-0 text-[11px] font-semibold text-[#b8a5ff]">
-                Frontend Development
+                {t.about.track}
               </h4>
 
               <p className="my-[17px] max-w-[430px] text-[11px] leading-[1.8] text-muted light:text-[#666b7f]">
-                Online shop admin paneli, Education CRM va Bizda Users
-                loyihalari orqali interfeyslar yaratish, API bilan ishlash va
-                ma’lumotlarni boshqarish ko‘nikmalarini rivojlantiryapman.
+              {t.about.practiceText}
               </p>
             </div>
 
             <ul className="my-[18px] grid list-none gap-3 p-0">
-              {experience.map((item) => (
+              {t.about.experience.map((item) => (
                 <li key={item} className="flex items-center gap-[9px] text-[10px] text-[#b7bdcf] light:text-[#555a70]">
                   <CheckCircle2 size={16} className="text-cyan" />
                   {item}
@@ -287,7 +248,7 @@ export default function About() {
             <div className="mt-5 flex items-center gap-2 border-t border-[#282b3b] pt-3.5 text-[11px] text-[#9aa0b5] light:border-[#e0e3ee]">
               <Sparkles size={15} className="text-purple" />
               <span>
-                Maqsad: professional jamoada ishlab, tajribamni oshirish.
+                {t.about.goal}
               </span>
             </div>
           </article>
@@ -303,21 +264,21 @@ export default function About() {
           </span>
 
           <div>
-            <h3 className="m-0 mb-[5px] text-[13px]">Tillar</h3>
-            <p className="m-0 text-[9px] text-[#777e94]">Muloqot uchun</p>
+            <h3 className="m-0 mb-[5px] text-[13px]">{t.about.languagesTitle}</h3>
+            <p className="m-0 text-[9px] text-[#777e94]">{t.about.languagesHint}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-3 gap-3 max-[680px]:grid-cols-1">
-          {languages.map((language) => (
+          {t.about.spoken.map((language, index) => (
             <div
               className="flex items-center gap-2.5 rounded-[10px] border border-line bg-panel p-3 light:border-[#e0e3ee] light:bg-white"
-              key={language.code}
+              key={languageStyles[index].code}
             >
               <span
-                className={`grid size-[33px] place-items-center rounded-[9px] font-mono text-[9px] font-medium ${language.style}`}
+                className={`grid size-[33px] place-items-center rounded-[9px] font-mono text-[9px] font-medium ${languageStyles[index].style}`}
               >
-                {language.code}
+                {languageStyles[index].code}
               </span>
 
               <div className="flex-1">

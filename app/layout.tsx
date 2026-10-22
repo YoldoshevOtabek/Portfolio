@@ -13,20 +13,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Otabek Yo‘ldoshev | Frontend Developer";
-const description =
-  "Otabek Yo‘ldoshev — Junior Frontend Developer. React, TypeScript, Next.js va Tailwind CSS yordamida zamonaviy web ilovalar, admin panellar va CRM tizimlari yaratadi.";
+const title = "Portfolio";
+const description = "Otabek Yo'ldoshev | Frontend developer";
+
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return "http://localhost:3000";
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://yoldoshevotabek.vercel.app",
-  ),
-  title: {
-    default: title,
-    template: "%s | Frontend Developer",
-  },
+  metadataBase: new URL(siteUrl()),
+  title,
   description,
-  applicationName: "Otabek Yo‘ldoshev Portfolio",
+  applicationName: "Portfolio",
   authors: [{ name: "Otabek Yo‘ldoshev" }],
   creator: "Otabek Yo‘ldoshev",
   publisher: "Otabek Yo‘ldoshev",
@@ -47,17 +50,18 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title:"Portfolio",
+    title,
     description,
     type: "website",
-    locale: "uz_UZ",
-    siteName: "Otabek Yo‘ldoshev",
+    locale: "en_US",
+    siteName: "Portfolio",
+    url: "/",
     images: [
       {
         url: "/og.png",
         width: 630,
         height: 630,
-        alt: "Otabek Yo‘ldoshev — Frontend Developer",
+        alt: description,
       },
     ],
   },
@@ -102,7 +106,7 @@ const jsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="uz"
+      lang="en"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >

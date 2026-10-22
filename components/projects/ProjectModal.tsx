@@ -5,6 +5,7 @@ import { ArrowUpRight, CheckCircle2, X, FolderCode, ExternalLink } from "lucide-
 import type { Project } from "@/data/projects";
 import ProjectPreview from "./ProjectPreview";
 import { btnPrimary, btnGhost, tag } from "@/components/ui/primitives";
+import { useI18n } from "@/lib/i18n";
 
 type Props = {
   project: Project;
@@ -12,6 +13,9 @@ type Props = {
 };
 
 export default function ProjectModal({ project, onClose }: Props) {
+  const { t } = useI18n();
+  const copy = t.projects.items[Number(project.number) - 1];
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -44,7 +48,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           type="button"
           className="absolute top-5 right-5 grid size-[35px] cursor-pointer place-items-center rounded-[9px] border border-[#303348] bg-[#171a28] light:bg-[#f2f3f9] light:text-[#333]"
           onClick={onClose}
-          aria-label="Modalni yopish"
+          aria-label={t.projects.close}
         >
           <X size={18} />
         </button>
@@ -59,7 +63,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           {project.name}
           <span className="text-purple">.</span>
         </h2>
-        <p className="mb-[18px] text-xs text-muted">{project.type}</p>
+        <p className="mb-[18px] text-xs text-muted">{copy.type}</p>
         <p className="mb-[18px] text-xs text-muted">{project?.login} </p>
 
         <div className="mb-5 [&_[aria-label]]:mt-0 [&_[aria-label]]:h-[240px] max-[680px]:[&_[aria-label]]:h-[205px]">
@@ -67,12 +71,12 @@ export default function ProjectModal({ project, onClose }: Props) {
         </div>
 
         <p className="text-xs leading-[1.9] text-[#aeb3c6] light:text-[#555a70]">
-          {project.description}
+          {copy.description}
         </p>
 
-        <h3 className="mt-[22px] mb-3 text-xs">Asosiy imkoniyatlar</h3>
+        <h3 className="mt-[22px] mb-3 text-xs">{t.projects.features}</h3>
         <ul className="grid list-none grid-cols-2 gap-[11px] p-0 max-[680px]:grid-cols-1">
-          {project.features.map((feature) => (
+          {copy.features.map((feature) => (
             <li
               key={feature}
               className="flex items-start gap-2 text-[10px] leading-[1.6] text-[#b9bed0] light:text-[#555a70]"
@@ -83,7 +87,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           ))}
         </ul>
 
-        <h3 className="mt-[22px] mb-3 text-xs">Texnologiyalar</h3>
+        <h3 className="mt-[22px] mb-3 text-xs">{t.projects.technologies}</h3>
         <div className="flex flex-wrap gap-1.5">
           {project.stack.map((technology) => (
             <span key={technology} className={tag}>
@@ -100,7 +104,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               rel="noreferrer"
               className={btnPrimary}
             >
-              Loyihani ko‘rish
+              {t.projects.view}
               <ExternalLink size={15} />
             </a>
           )}
@@ -112,7 +116,7 @@ export default function ProjectModal({ project, onClose }: Props) {
             className={project.liveUrl ? btnGhost : btnPrimary}
           >
             <FolderCode size={16} />
-            GitHub repository
+            {t.projects.github}
             <ArrowUpRight size={15} />
           </a>
         </div>

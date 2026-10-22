@@ -1,13 +1,19 @@
+"use client";
+
 import type { ProjectKind } from "@/data/projects";
-import Image from "next/image"
+import Image from "next/image";
+import { useI18n } from "@/lib/i18n";
 
 type Props = {
   kind: ProjectKind;
 };
 
 
+const previewIndex = { shop: 0, education: 1, users: 2 } as const;
+
 export default function ProjectPreview({ kind }: Props) {
-  
+  const { t } = useI18n();
+  const alt = t.projects.items[previewIndex[kind]].previewAlt;
 
   return (
     <div
@@ -24,13 +30,7 @@ export default function ProjectPreview({ kind }: Props) {
             ? "/BizdaCrm.png"
             : "/G_Crm.png"
       }
-      alt={
-        kind === "users"
-          ? "Bizda Users storefront preview"
-          : kind === "shop"
-            ? "Bizda CRM dashboard preview"
-            : "Education CRM dashboard preview"
-      }
+      alt={alt}
       fill
       className="object-cover object-top transition-transform duration-500 ease-out motion-safe:group-hover:scale-105"
       sizes="(max-width: 680px) 100vw, 50vw"

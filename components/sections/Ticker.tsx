@@ -1,3 +1,7 @@
+"use client";
+
+import { useI18n } from "@/lib/i18n";
+
 const technologies = [
   "HTML5",
   "CSS3",
@@ -11,12 +15,13 @@ const technologies = [
 ];
 
 export default function Ticker() {
+  const { t } = useI18n();
   const items = [...technologies, ...technologies];
 
   return (
     <div
       className="overflow-hidden border-y border-[#202333] bg-[#0c0e17] [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] light:border-[#e0e3ee] light:bg-[#eef0f8]"
-      aria-label="Frontend texnologiyalari"
+      aria-label={t.tickerAria}
     >
       <div className="flex min-w-max animate-marquee items-center gap-[45px] px-[max(32px,calc((100vw-1160px)/2))] py-[19px] max-[680px]:gap-7 max-[680px]:py-[15px]">
         {items.map((technology, index) => (
