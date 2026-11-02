@@ -38,7 +38,7 @@ export default function Hero() {
         >
           Otabek
           <br />
-          <span className={gradientText}>Yo‘ldoshev</span>
+          <span className={gradientText}>Yo'ldoshev</span>
         </h1>
 
         <h2
